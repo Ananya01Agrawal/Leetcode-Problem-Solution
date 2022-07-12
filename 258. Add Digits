@@ -1,0 +1,43 @@
+class Solution {
+    public int addDigits(int num) {
+        if (num==0)
+          return 0;
+	   
+        if((num%9)==0)
+          return 9;
+        else
+          return (num%9);
+    }
+}
+
+/*
+How does the above logic works? 
+
+The logic behind this approach is :
+
+Divisibility Test Of 9:
+
+if(sumOfDigits(num) %9==0)
+  num is divisible by 9;
+else
+  num is not divisible by 9;
+  
+If a number n is divisible by 9, then the (sum of its digit) until the (sum of Digits) becomes a single digit is always 9. For example, 
+let’s take 
+     n=27 => (2+7)= 9 
+     n =999999 => (9+9+9+9+9+9)= 54 => (5+4)=9 
+     n =9999 => (9+9+9+9)= 36 => (3+6)= 9
+     n =1008 => (1+0+0+8)= 9 
+     n =8991 => (8+9+9+1)= 27 => 27=>(2+7)=9 
+     
+If a number n is not divisible by 9, then the (sum of its digit) until the (sum of Digits) becomes a single digit is always n%9. For example, 
+let’s take 
+     n=28 => (2+8)= 10 =(1+0)=1 (i.e 28 % 9) 
+     n =999899 => (9+9+9+8+9+9)= 53 => (5+3)=8 (i.e 999899 % 9 ) 
+     n =9955 => (9+9+5+5)= 28 => (2+8)= 10 =>(1+0)= 1  (i.e 9955 % 9) 
+     n =1099 => (1+0+9+9)= 19 (i.e 1099 % 9 ) 
+     n =8992 => (8+9+9+2)= 28 => 28=>(10)=(1+0)=1 (i.e 8992 % 9) 
+     
+Therefore,
+A number can be of the form 9x or 9x + k. For the first case, the answer is always 9. For the second case, and is always k (which is the remainder left. i.e (num%9))
+*/
