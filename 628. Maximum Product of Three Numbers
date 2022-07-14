@@ -1,0 +1,10 @@
+class Solution {
+    public int maximumProduct(int[] nums) {
+        if(nums.length==0)
+            return nums[0]*nums[1]*nums[2];
+        Arrays.sort(nums);
+        int m=nums.length;
+        return Math.max(nums[0]*nums[1]*nums[m-1],nums[m-1]*nums[m-2]*nums[m-3]);
+    }
+}
+        
